@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import firebase from 'firebase';
 
-export class Register extends React.Component {
+export class Login extends React.Component {
     constructor(props){
         super(props);
 
@@ -16,7 +16,7 @@ export class Register extends React.Component {
 
     onSignUp(){
         const { email, password} = this.state;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().signInWithEmailAndPassword(email, password)
         .then((result)=> {
             console.log(result)
         })
@@ -43,11 +43,11 @@ export class Register extends React.Component {
             />
             <Button
                 onPress={()=> this.onSignUp()}
-                title='Sign Up'
+                title='Sign In'
             />
         </View>
     )
     }
 }
 
-export default Register
+export default Login
