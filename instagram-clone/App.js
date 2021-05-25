@@ -9,6 +9,7 @@ import RegisterScreen from './components/auth/Register';
 import * as firebase from 'firebase';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//If deployed as a real application it would be in an .env file
 const firebaseConfig = {
   apiKey: "AIzaSyC1vrZSxo-0MezkhPeiUsz0EGp2Bf-ZBXk",
   authDomain: "instagramclone-660bc.firebaseapp.com",
@@ -73,5 +74,5 @@ export default class App extends Component {
    )
   }
 }
-
+ 
 
