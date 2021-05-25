@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 //Components
 import LandingScreen from './components/auth/Landing';
 import RegisterScreen from './components/auth/Register';
+import AddScreen from './components/main/Add'
+
 import * as firebase from 'firebase';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -67,18 +69,23 @@ export default class App extends Component {
   if(!loggedIn){
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='Landing'>
         <Stack.Screen name='Landing' component={LandingScreen} options={{headerShown:false}}/>
         <Stack.Screen name='Register' component={RegisterScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
    }
-   return(
+   return (
      <Provider store={store}>
-      <MainScreen/>
-     </Provider>
-   )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Main'>
+        <Stack.Screen name='Main' component={MainScreen} options={{headerShown:false}}/>
+        <Stack.Screen name='Add' component={AddScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    </Provider>
+  );
   }
 }
  
